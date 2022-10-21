@@ -1,0 +1,17 @@
+.element__button {
+  padding: 0;
+  margin-right: 5px;
+  outline: none;
+  border: none;
+  width: 22px;
+  height: 19px;
+  align-self: center;
+  background-color: #ffffff;
+  background-image: url(../../../images/element__logo.svg);
+  transition: opacity 200ms ease-in-out;
+}
+
+.element__button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}

@@ -1,0 +1,144 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/inter.css);
+@import url(./blocks/body/body.css);
+@import url(./blocks/page/page.css);
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__info/profile__info.css);
+@import url(./blocks/profile/__title/profile__title.css);
+@import url(./blocks/profile/__paragraph/profile__paragraph.css);
+@import url(./blocks/profile/__edit-button/profile__edit-button.css);
+@import url(./blocks/profile/__add-button/profile__add-button.css);
+@import url(./blocks/profile/__image-container/profile__image-container.css);
+@import url(./blocks/elements/elements.css);
+@import url(./blocks/element/element.css);
+@import url(./blocks/element/__item/element__item.css);
+@import url(./blocks/element/__title/element__title.css);
+@import url(./blocks/element/__button/element__button.css);
+@import url(./blocks/element/__button/_active/element__button_active.css);
+@import url(./blocks/element/__trash-button/element__trash-button.css);
+@import url(./blocks/element/__img/element__img.css);
+@import url(./blocks/element/__like/element__like.css);
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__author/footer__author.css);
+@import url(./blocks/profile/__image/profile__image.css);
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/__container/popup__container.css);
+@import url(./blocks/popup/__container/_image/popup__container_image.css);
+@import url(./blocks/popup/__content/popup__content.css);
+@import url(./blocks/popup/__title/popup__title.css);
+@import url(./blocks/popup/__field/popup__field.css);
+@import url(./blocks/popup/__submit-button/popup__submit-button.css);
+@import url(./blocks/popup/__text-button/popup__text-button.css);
+@import url(./blocks/popup/__close-button/popup__close-button.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
+@import url(./blocks/popup/__image/popup__image.css);
+@import url(./blocks/popup/__paragraph/popup__paragraph.css);
+@import url(./blocks/popup/__form/popup__form.css);
+@import url(./blocks/popup/__overlay/popup__overlay.css);
+@import url(./blocks/popup/_image-scale/popup_image-scale.css);
+@import url(./blocks/popup/__field-error/popup__field-error.css);
+@import url(./blocks/popup/__disabled/button__disabled.css);
+@import url(./blocks/popup/__input/_type_error/form__input_type_error.css);
+@import url(./blocks/popup/__input-error/_active/form__input-error_acitve.css);
+@import url(./blocks/popup/__container/_confirm/popup__container_confirm.css);
+@import url(./blocks/popup/__submit-button/_confirm/popup__sumbit-button_confirm.css);
+@import url(./blocks/popup/__container/_change-avatar/popup__container_change-avatar.css);
+@import url(./blocks/popup/__submit-button/_change-avatar/popup__submit-button_change-avatar.css);
+@import url(./blocks/popup/__field/_change-avatar/popup__field_change-avatar.css);
+
+.card__delete-button_visible {
+  display: block;
+}
+
+.card__delete-button_hidden {
+  display: none;
+}
+.form {
+  margin: 0 auto;
+  max-width: 358px;
+}
+.form__title {
+  margin: 0;
+  margin-top: 60px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #ffffff;
+}
+.form__container_input {
+  margin: 0;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.form__input {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 100%;
+  height: 27px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #cccccc;
+  outline: none;
+}
+.form__submit-button {
+  margin: 0 auto;
+  margin-top: 186px;
+  width: 100%;
+  min-height: 50px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+  transition: opacity 300ms ease-in-out;
+}
+.form__submit-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.form__paragraph {
+  margin: 0;
+  margin-top: 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+}
+.popup__icon {
+  margin: 0 auto;
+  margin-top: 60px;
+  width: 120px;
+  height: 120px;
+}
+.popup__text {
+  text-align: center;
+  width: 358px;
+}
+.header__paragraph {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  color: #ffffff;
+  text-decoration: none;
+}

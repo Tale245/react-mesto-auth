@@ -1,0 +1,22 @@
+.profile__image-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+}
+.profile__image-container::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+  background: rgba(0, 0, 0, 0.8) url(../../../images/changeAvatarIco.svg) no-repeat
+    center;
+}
+.profile__image-container:hover:before {
+  opacity: 1;
+}

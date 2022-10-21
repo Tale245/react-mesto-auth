@@ -1,0 +1,26 @@
+.popup__field {
+  position: relative;
+  margin: auto;
+  font-family: "inter", "Arial", "sans-serif";
+  border: none;
+  border-bottom: 1px solid #000000;
+  outline: none;
+  width: 358px;
+  margin-bottom: 0px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  padding-bottom: 13px;
+}
+
+.popup__field:last-of-type {
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 630px) {
+  .popup__field {
+    max-width: 100%;
+  }
+}
