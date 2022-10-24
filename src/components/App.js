@@ -15,6 +15,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import auth from "../utils/Auth";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -41,10 +42,13 @@ function App() {
     api
       .getCards()
       .then((data) => {
+        debugger
         setCards(data);
       })
       .catch((e) => console.log(e));
-  }, []);
+
+      
+  }, [loggedIn]);
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
@@ -157,10 +161,10 @@ function App() {
               />
             </ProtectedRoute>
             <Route path="/signup">
-              <Register onClose={closeAllPopups} isOpen={isInfoTooltipOpen} logo={logo}/>
+              <Register onClose={closeAllPopups} isOpen={isInfoTooltipOpen} />
             </Route>
             <Route path="/signin" >
-              <Login logo={logo}/>
+              <Login setLoggedIn={setLoggedIn}/>
             </Route>
             <Route>
               {loggedIn ? <Redirect to="/" /> : <Redirect to="/signup" />}

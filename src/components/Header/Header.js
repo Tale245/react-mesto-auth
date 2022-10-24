@@ -1,12 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Route } from "react-router-dom/cjs/react-router-dom.min";
-const Header = ({ logo }) => {
+const Header = ({ logo, email }) => {
   return (
     <header className="header">
       <a href="index.html" className="header__link">
         <img src={logo} alt="логотип проекта Место" className="header__logo" />
-      </a>
+      </a>      
+      {/* <Route exact path='/'>
+      <div className="header__wrapper">
+        <p className="header__user">{email}</p>
+        <button className="header__logout">Выйти</button>
+      </div>
+      </Route> */}
       <Route path='/signin'>
       <Link className="header__paragraph" to='/signup'>Регистрация</Link>
       </Route>
