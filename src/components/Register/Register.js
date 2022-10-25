@@ -1,24 +1,16 @@
 import React from "react";
-import fail from "../../images/fail.svg";
-import success from "../../images/success.svg";
+// import fail from "../../images/fail.svg";
+// import success from "../../images/success.svg";
 import InfoTooltip from "../InfoTooltip/InfoTooltip";
 import { Link } from "react-router-dom";
-import auth from "../../utils/Auth";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-const Register = ({ onClose, isOpen }) => {
+const Register = ({ onClose, isOpen, handleSubmitSignup, isRegister }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    auth.signup(password, email).then(() => {
-      history.push('./signin')
-    });
-
-    debugger;
+    handleSubmitSignup(password, email)
   };
 
   return (
@@ -47,7 +39,7 @@ const Register = ({ onClose, isOpen }) => {
         </Link>
       </form>
 
-      <InfoTooltip onClose={onClose} isOpen={isOpen} />
+      <InfoTooltip onClose={onClose} isOpen={isOpen} isRegister={isRegister} />
     </>
   );
 };

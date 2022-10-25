@@ -1,7 +1,7 @@
 import React from "react";
 // import { CurrentCardContext } from "../../contexts/CurrentCardContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import Cards from "../Card/Card";
+import Card from "../Card/Card";
 
 const Main = ({
   onEditAvatar,
@@ -13,7 +13,6 @@ const Main = ({
   onCardDelete,
 }) => {
   const currentUser = React.useContext(CurrentUserContext);
-
   return (
     <main className="main">
       <section className="profile">
@@ -36,7 +35,7 @@ const Main = ({
       </section>
       <section className="elements">
         {cards.map((card) => (
-          <Cards
+          <Card
             key={card._id}
             link={card.link}
             name={card.name}

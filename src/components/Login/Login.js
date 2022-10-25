@@ -1,23 +1,14 @@
 import React from "react";
-import Header from "../Header/Header";
-import auth from "../../utils/Auth";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
-const Login = ({setLoggedIn}) => {
+const Login = ({setLoggedIn,  handleSumbitSignin}) => {
 
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
-  const history = useHistory()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    auth.signin(password, email).then((res) => {
-      auth.tokenValidity(res.token)
-      setLoggedIn(true)
-      history.push('./')
-    })
+    handleSumbitSignin(password, email)
   }
 
   return (

@@ -133,6 +133,7 @@
   width: 358px;
 }
 .header__paragraph {
+  margin: 0;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -141,4 +142,23 @@
   text-align: right;
   color: #ffffff;
   text-decoration: none;
+}
+.header__wrapper {
+  margin: 0;
+  max-height: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logout{
+  margin: 0;
+  margin-left: 24px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  background: none;
+  cursor: pointer;
+  color: #A9A9A9;
 }
