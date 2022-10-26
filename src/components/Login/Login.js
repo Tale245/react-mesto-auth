@@ -1,7 +1,7 @@
 import React from "react";
+import InfoTooltip from "../InfoTooltip/InfoTooltip";
 
-
-const Login = ({setLoggedIn,  handleSumbitSignin}) => {
+const Login = ({onClose, isOpen, isRegister, handleSumbitSignin}) => {
 
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
@@ -33,6 +33,7 @@ const Login = ({setLoggedIn,  handleSumbitSignin}) => {
       </div>
       <button className="form__submit-button">Войти</button>
     </form>
+    <InfoTooltip onClose={onClose} isOpen={isOpen} isRegister={isRegister} />
     </>
   );
 };

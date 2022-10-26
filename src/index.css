@@ -134,6 +134,7 @@
 }
 .header__paragraph {
   margin: 0;
+  margin-top: 8px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -145,13 +146,16 @@
 }
 .header__wrapper {
   margin: 0;
+  margin-right:8px;
   max-height: 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .header__logout{
-  margin: 0;
+  margin: 0 auto;
+  width: 56px;
+  margin-top: 8px;
   margin-left: 24px;
   font-family: 'Inter';
   font-style: normal;

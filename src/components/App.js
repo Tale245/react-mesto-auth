@@ -52,9 +52,9 @@ function App() {
     return auth.tokenValidity(jwt).then((res) => {
       if (res) {
         setLoggedIn(true);
-        setUserData(res)
+        setUserData(res);
       }
-    });
+    }).catch((e) => console.log(e))
   };
 
   React.useEffect(() => {
@@ -65,7 +65,6 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    debugger
     if (loggedIn) {
       history.push("/");
     }
@@ -121,8 +120,8 @@ function App() {
       .then((card) => {
         setCards([card, ...cards]);
       })
-      .then(() => closeAllPopups())
       .then(() => {
+        closeAllPopups();
         nameRef.current.value = "";
         linkRef.current.value = "";
       })
@@ -133,12 +132,10 @@ function App() {
     setIsEditAvatarPopupOpen(true);
   }
   function handleCloseInfoTooltip() {
-    if(isRegister){
-      setisInfoTooltipOpen(false)
-      history.push('/signin')
-    } else(
-      setisInfoTooltipOpen(false)
-    )
+    if (isRegister) {
+      setisInfoTooltipOpen(false);
+      history.push("/signin");
+    } else setisInfoTooltipOpen(false);
   }
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
@@ -163,42 +160,49 @@ function App() {
       .then((result) => {
         setCurrentUser(result);
       })
-      .then(() => closeAllPopups())
-      .then(() => (avatarRef.current.value = ""))
+      .then(() => {
+        closeAllPopups();
+        avatarRef.current.value = "";
+      })
       .catch((e) => console.log(e));
   }
 
   function handleSubmitSignin(password, email) {
     auth.signin(password, email).then((res) => {
-      if(res.token){
+      if (res.token) {
         setLoggedIn(true);
-        localStorage.setItem('jwt', res.token)
+        localStorage.setItem("jwt", res.token);
+        history.push("/");
       }
-    });
+    }).catch((e) => {
+      console.log(e)
+      setisInfoTooltipOpen(true);
+      setIsRegister(false);
+    })
   }
 
   function handleSubmitSignup(password, email) {
     auth.signup(password, email).then((res) => {
-      if(res){
+      if (res) {
         setisInfoTooltipOpen(true);
-        setIsRegister(true)
-      } else{
+        setIsRegister(true);
+      } else {
         setisInfoTooltipOpen(true);
-        setIsRegister(false)
+        setIsRegister(false);
       }
-    });
+    }).catch((e) => console.log(e))
   }
 
-  function signout(){
-    localStorage.removeItem('jwt')
-    history.push('/signin')
+  function signout() {
+    localStorage.removeItem("jwt");
+    history.push("/signin");
   }
 
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
         <CurrentCardContext.Provider value={cards}>
-          <Header logo={logo} userData={userData} signout={signout}/>
+          <Header logo={logo} userData={userData} signout={signout} />
           <Switch>
             <ProtectedRoute
               exact
@@ -218,13 +222,16 @@ function App() {
                 onClose={handleCloseInfoTooltip}
                 isOpen={isInfoTooltipOpen}
                 handleSubmitSignup={handleSubmitSignup}
-                isRegister = {isRegister}
+                isRegister={isRegister}
               />
             </Route>
             <Route path="/signin">
               <Login
                 setLoggedIn={setLoggedIn}
                 handleSumbitSignin={handleSubmitSignin}
+                onClose={handleCloseInfoTooltip}
+                isOpen={isInfoTooltipOpen}
+                isRegister={isRegister}
               />
             </Route>
             <Route>
@@ -255,7 +262,7 @@ function App() {
             submitBtnName="Да"
             isOpen={false}
             onClose={closeAllPopups}
-          ></PopupWithForm>
+          />
 
           <ImagePopup card={selectedCard} onClose={closeAllPopups} />
         </CurrentCardContext.Provider>
