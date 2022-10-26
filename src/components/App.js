@@ -49,12 +49,15 @@ function App() {
   }, []);
 
   const loginWithToken = (jwt) => {
-    return auth.tokenValidity(jwt).then((res) => {
-      if (res) {
-        setLoggedIn(true);
-        setUserData(res);
-      }
-    }).catch((e) => console.log(e))
+    return auth
+      .tokenValidity(jwt)
+      .then((res) => {
+        if (res) {
+          setLoggedIn(true);
+          setUserData(res);
+        }
+      })
+      .catch((e) => console.log(e));
   };
 
   React.useEffect(() => {
@@ -168,29 +171,35 @@ function App() {
   }
 
   function handleSubmitSignin(password, email) {
-    auth.signin(password, email).then((res) => {
-      if (res.token) {
-        setLoggedIn(true);
-        localStorage.setItem("jwt", res.token);
-        history.push("/");
-      }
-    }).catch((e) => {
-      console.log(e)
-      setisInfoTooltipOpen(true);
-      setIsRegister(false);
-    })
+    auth
+      .signin(password, email)
+      .then((res) => {
+        if (res.token) {
+          setLoggedIn(true);
+          localStorage.setItem("jwt", res.token);
+          history.push("/");
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+        setisInfoTooltipOpen(true);
+        setIsRegister(false);
+      });
   }
 
   function handleSubmitSignup(password, email) {
-    auth.signup(password, email).then((res) => {
-      if (res) {
-        setisInfoTooltipOpen(true);
-        setIsRegister(true);
-      } else {
-        setisInfoTooltipOpen(true);
-        setIsRegister(false);
-      }
-    }).catch((e) => console.log(e))
+    auth
+      .signup(password, email)
+      .then((res) => {
+        if (res) {
+          setisInfoTooltipOpen(true);
+          setIsRegister(true);
+        } else {
+          setisInfoTooltipOpen(true);
+          setIsRegister(false);
+        }
+      })
+      .catch((e) => console.log(e));
   }
 
   function signout() {

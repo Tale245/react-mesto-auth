@@ -6,18 +6,26 @@ const Header = ({ logo, userData, signout }) => {
     <header className="header">
       <a href="index.html" className="header__link">
         <img src={logo} alt="логотип проекта Место" className="header__logo" />
-      </a>      
-      <Route exact path='/'>
-      <div className="header__wrapper">
-        <p className="header__paragraph">{userData.data && userData.data.email}</p>
-        <button className="header__logout" onClick={signout}>Выйти</button>
-      </div>
+      </a>
+      <Route exact path="/">
+        <div className="header__wrapper">
+          <p className="header__paragraph">
+            {userData.data && userData.data.email}
+          </p>
+          <button className="header__logout" onClick={signout}>
+            Выйти
+          </button>
+        </div>
       </Route>
-      <Route path='/signin'>
-      <Link className="header__paragraph" to='/signup'>Регистрация</Link>
+      <Route path="/signin">
+        <Link className="header__paragraph" to="/signup">
+          Регистрация
+        </Link>
       </Route>
-      <Route path='/signup'>
-      <Link className="header__paragraph" to='/signin'>Войти</Link>
+      <Route path="/signup">
+        <Link className="header__paragraph" to="/signin">
+          Войти
+        </Link>
       </Route>
     </header>
   );
