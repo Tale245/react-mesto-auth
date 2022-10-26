@@ -122,8 +122,6 @@ function App() {
       .uploadCard(card)
       .then((card) => {
         setCards([card, ...cards]);
-      })
-      .then(() => {
         closeAllPopups();
         nameRef.current.value = "";
         linkRef.current.value = "";
@@ -152,8 +150,8 @@ function App() {
       .setUserInfo({ name, about })
       .then((result) => {
         setCurrentUser(result);
+        closeAllPopups()
       })
-      .then(() => closeAllPopups())
       .catch((e) => console.log(e));
   }
 
@@ -162,8 +160,6 @@ function App() {
       .changeAvatar({ avatar })
       .then((result) => {
         setCurrentUser(result);
-      })
-      .then(() => {
         closeAllPopups();
         avatarRef.current.value = "";
       })
