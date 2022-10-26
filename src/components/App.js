@@ -173,6 +173,7 @@ function App() {
         if (res.token) {
           setLoggedIn(true);
           localStorage.setItem("jwt", res.token);
+          loginWithToken(res.token)
           history.push("/");
         }
       })
@@ -201,6 +202,7 @@ function App() {
   function signout() {
     localStorage.removeItem("jwt");
     history.push("/signin");
+    setUserData({})
   }
 
   return (
