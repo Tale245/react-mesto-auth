@@ -1,5 +1,4 @@
 import React from "react";
-// import { CurrentCardContext } from "../../contexts/CurrentCardContext"
 const Card = ({
   link,
   name,
@@ -21,8 +20,6 @@ const Card = ({
 
   // Создаём переменную, которую после зададим в `className` для кнопки лайка
   const cardLikeButtonClassName = `${isLiked && "element__button_active"}`;
-
-  // const currentCard = React.useContext(CurrentCardContext)
 
   function handleClick() {
     onCardClick({ link: link, name: name });

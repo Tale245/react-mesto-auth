@@ -1,6 +1,6 @@
 class Auth {
   constructor() {
-    this._baseUrl = "https://auth.nomoreparties.co";
+    this._baseUrl = "http://localhost:3001";
   }
 
   signup(password, email) {
@@ -16,6 +16,7 @@ class Auth {
     })
       .then((res) =>{
         if (res.ok) {
+          console.log(res)
           return res.json();
         } else if(res.status === 400){
           console.log('Некорректно заполнено одно из полей ')

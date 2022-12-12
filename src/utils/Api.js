@@ -3,6 +3,7 @@ class Api {
     this.userData = userData;
     this._headers = this.userData.headers;
     this._baseUrl = this.userData.baseUrl;
+    // this._token = localStorage.getItem('jwt')
   }
 
   _checkResponse(res) {
@@ -16,7 +17,7 @@ class Api {
   // Загрузка данных о пользователе с сервера
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
+      headers: this._headers
     }).then((res) => {
       return this._checkResponse(res);
     });
@@ -98,10 +99,10 @@ class Api {
 
 const user = {
   headers: {
-    authorization: "5ef57d1b-1ea7-434a-b183-6df5295fe05d",
+    authorization:`Bearer ${localStorage.getItem('jwt')}`,
     "Content-Type": "application/json",
   },
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-49",
+  baseUrl: "http://localhost:3001",
 };
 
 const api = new Api(user);
