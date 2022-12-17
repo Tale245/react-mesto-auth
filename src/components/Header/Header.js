@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Route } from "react-router-dom/cjs/react-router-dom.min";
-const Header = ({ logo, userData, signout }) => {
+const Header = ({ logo, currentUser, signout }) => {
   return (
     <header className="header">
       <a href="index.html" className="header__link">
@@ -10,7 +10,7 @@ const Header = ({ logo, userData, signout }) => {
       <Route exact path="/">
         <div className="header__wrapper">
           <p className="header__paragraph">
-            {userData.data && userData.data.email}
+            {currentUser.email}
           </p>
           <button className="header__logout" onClick={signout}>
             Выйти

@@ -30,16 +30,11 @@ function App() {
 
   const [cards, setCards] = React.useState([]);
   const [loggedIn, setLoggedIn] = React.useState(false);
-  const [userData, setUserData] = React.useState({});
+  // const [userData, setUserData] = React.useState({});
   const [isRegister, setIsRegister] = React.useState(false);
   const history = useHistory();
 
   React.useEffect(() => {
-    api
-      .getUserInfo()
-      .then((result) => setCurrentUser(result))
-      .catch((e) => console.log(e));
-
     api
       .getCards()
       .then((data) => {
@@ -54,7 +49,7 @@ function App() {
       .then((res) => {
         if (res) {
           setLoggedIn(true);
-          setUserData(res);
+          setCurrentUser(res)
         }
       })
       .catch((e) => console.log(e));
@@ -99,11 +94,12 @@ function App() {
   }
 
   function handleCardDelete(card) {
-    api.deleteCard(card).then(() => {
-      setCards(cards.filter((item) => item._id !== card._id)).catch((e) =>
-        console.log(e)
-      );
-    });
+    api
+      .deleteCard(card)
+      .then(() => {
+        setCards(cards.filter((item) => item._id !== card._id));
+      })
+      .catch((e) => console.log(e));
   }
 
   function handleCardClick({ link, name }) {
@@ -150,7 +146,7 @@ function App() {
       .setUserInfo({ name, about })
       .then((result) => {
         setCurrentUser(result);
-        closeAllPopups()
+        closeAllPopups();
       })
       .catch((e) => console.log(e));
   }
@@ -173,7 +169,7 @@ function App() {
         if (res.token) {
           setLoggedIn(true);
           localStorage.setItem("jwt", res.token);
-          loginWithToken(res.token)
+          loginWithToken(res.token);
           history.push("/");
         }
       })
@@ -202,14 +198,14 @@ function App() {
   function signout() {
     localStorage.removeItem("jwt");
     history.push("/signin");
-    setUserData({})
+    setCurrentUser({});
   }
 
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
         <CurrentCardContext.Provider value={cards}>
-          <Header logo={logo} userData={userData} signout={signout} />
+          <Header logo={logo} currentUser={currentUser} signout={signout} />
           <Switch>
             <ProtectedRoute
               exact

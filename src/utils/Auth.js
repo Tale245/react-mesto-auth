@@ -51,7 +51,6 @@ class Auth {
       })
       .catch((e) => console.log(e));
   }
-
   tokenValidity(token) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
@@ -74,6 +73,5 @@ class Auth {
       .catch((e) => console.log(e));
   }
 }
-
 const auth = new Auth();
 export default auth;
