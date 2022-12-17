@@ -1,6 +1,6 @@
 class Auth {
   constructor() {
-    this._baseUrl = "http://localhost:3001";
+    this._baseUrl = "https://api.mesto479.nomoredomains.club";
   }
 
   signup(password, email) {

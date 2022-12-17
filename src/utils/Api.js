@@ -3,7 +3,6 @@ class Api {
     this.userData = userData;
     this._headers = this.userData.headers;
     this._baseUrl = this.userData.baseUrl;
-    // this._token = localStorage.getItem('jwt')
   }
 
   _checkResponse(res) {
@@ -102,7 +101,7 @@ const user = {
     authorization:`Bearer ${localStorage.getItem('jwt')}`,
     "Content-Type": "application/json",
   },
-  baseUrl: "http://localhost:3001",
+  baseUrl: "https://api.mesto479.nomoredomains.club",
 };
 
 const api = new Api(user);
